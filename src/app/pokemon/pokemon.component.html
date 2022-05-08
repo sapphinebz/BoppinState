@@ -1,0 +1,7 @@
+<ng-container *ngIf="pokemon">
+  <div>
+    <img [src]="pokemon.sprites.front_default" alt="front_default" />
+    <img [src]="pokemon.sprites.back_default" alt="back_default" />
+  </div>
+  <div>weight: {{ pokemon.weight }} kg</div>
+</ng-container>
