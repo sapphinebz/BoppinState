@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  Input,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { tap } from 'rxjs/operators';
 import { PokemonResponse } from '../pokemon.model';
 
 @Component({
@@ -20,8 +16,9 @@ export class PokemonComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<PokemonResponse>(this.url).subscribe((pokemon) => {
-      this.pokemon = pokemon;
-    });
+    this.http
+      .get<PokemonResponse>(this.url)
+      .pipe(tap((pokemon) => (this.pokemon = pokemon)))
+      .subscribe();
   }
 }

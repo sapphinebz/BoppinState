@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatest, from, lastValueFrom, of } from 'rxjs';
+import { combineLatest } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { BoppinState } from './boppin-state';
 import {
   PaginatePokemon,
   PaginatePokemonResponse,
 } from './paginate-pokemon.model';
-import { PokemonResponse } from './pokemon.model';
 interface AppState {
   limit: number;
   offset: number;
